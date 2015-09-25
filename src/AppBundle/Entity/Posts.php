@@ -43,6 +43,12 @@ class Posts
      */
     protected $updated;
 
+    public function __construct()
+    {
+        $this->setCreated(new \DateTime());
+        $this->setUpdated(new \DateTime());
+    }
+
     /**
      * Get id
      *
@@ -51,12 +57,6 @@ class Posts
     public function getId()
     {
         return $this->id;
-    }
-
-    public function __construct()
-    {
-        $this->setCreated(new \DateTime());
-        $this->setUpdated(new \DateTime());
     }
 
     /**
