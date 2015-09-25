@@ -1,0 +1,44 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="posts")
+ */
+
+class Posts
+{
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * Title of post
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $title;
+
+    /**
+     * Full text of post
+     * @ORM\Column(type="text")
+     */
+    protected $text;
+
+    /**
+     * Time of created post
+     * @ORM\Column(type="datetime")
+     */
+    protected $created;
+
+    /**
+     * Time of last updated post
+     * @ORM\Column(type="datetime")
+     */
+    protected $updated;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "blog.loc",
+  "version": "0.0.0",
+  "authors": [
+    "Yaroslav Kochegarov <muswise@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/assets/vendor/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
+}
