@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="blogApp">
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}MusWise{% endblock %}</title>
         {% block stylesheets %}
             {% stylesheets
-                'assets/vendor/bootstrap/dist/css/bootstrap.min.css' %}
+                'assets/vendor/bootstrap/dist/css/bootstrap.min.css'
+                'bundles/app/css/main.css'
+            %}
             <link rel="stylesheet" href="{{ asset_url }}">
             {% endstylesheets %}
         {% endblock %}
@@ -57,13 +59,19 @@
             </div>
         {% endblock %}
         {% block javascripts %}
+
             {% javascripts
                 'assets/vendor/jquery/dist/jquery.js'
                 'assets/vendor/bootstrap/dist/js/bootstrap.min.js'
                 'assets/vendor/angular/angular.js'
+                'assets/vendor/angular-route/angular-route.js'
             %}
             <script src="{{ asset_url }}"></script>
             {% endjavascripts %}
+
+            <script src="{{ asset('bundles/app/angular_app/app.js') }}"></script>
+            <script src="{{ asset('bundles/app/angular_app/routing.js') }}"></script>
+
         {% endblock %}
     </body>
 </html>
