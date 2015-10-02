@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html ng-app="blogApp">
     <head>
-        <meta charset="UTF-8" />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}MusWise{% endblock %}</title>
         {% block stylesheets %}
             {% stylesheets
@@ -71,6 +73,9 @@
 
             <script src="{{ asset('bundles/app/angular_app/app.js') }}"></script>
             <script src="{{ asset('bundles/app/angular_app/routing.js') }}"></script>
+            <script src="{{ asset('bundles/app/angular_app/services/PostsService.js') }}"></script>
+            <script src="{{ asset('bundles/app/angular_app/controller/MainController.js') }}"></script>
+            <script src="{{ asset('bundles/app/angular_app/filters/range.js') }}"></script>
 
         {% endblock %}
     </body>

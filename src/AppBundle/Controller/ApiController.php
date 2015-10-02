@@ -20,12 +20,23 @@ class ApiController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $repository = $this->getDoctrine()->getRepository('AppBundle:Posts');
-        $allPosts = $repository->findAll();
+        $opt = array();
 
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Posts');
+
+        if($request->query->get('firstPost')){
+            $opt['start'] = $request->query->get('firstPost');
+        }
+
+        if($request->query->get('quantity')){
+            $opt['limit'] = $request->query->get('quantity');
+        }
+
+        $allPosts = $repository->getAllPagination($opt);
+        $cntPost = $repository->countPosts();
+        array_push($allPosts, $cntPost);
         $serializer = $this->container->get('jms_serializer');
         $j = $serializer->serialize($allPosts, 'json');
-
         return new Response($j);
     }
 }

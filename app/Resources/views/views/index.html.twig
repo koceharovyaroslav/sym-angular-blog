@@ -1,1 +1,10 @@
-{$ index.response $}
+<ul class="list-inline">
+    <li ng-repeat="i in [] | range:index.allPages">
+        <button ng-click="index.paging(i*index.qntPosts)">{$  i+1 $}</button>
+    </li>
+</ul>
+
+<div ng-repeat="post in index.allPosts">
+    <h2>{$ post.title $}</h2>
+    <div>{$ post.text $} </div>
+</div>

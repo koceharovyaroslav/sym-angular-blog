@@ -1,6 +1,6 @@
 (function(){
     angular.module('blogApp')
-        .config(["$routeProvider",function($routeProvider){
+        .config(["$routeProvider", function($routeProvider){
             $routeProvider
                 .when("/",
                 {

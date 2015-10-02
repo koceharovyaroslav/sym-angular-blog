@@ -3,13 +3,30 @@
     angular.module('blogApp')
         .controller('indexController', indexController);
 
-    indexController.$inject = ['$http'];
+    indexController.$inject = ['PostsService'];
 
-    function indexController($http){
+    function indexController(PostsService){
         var self = this;
+        self.firstPost = 1;
+        self.qntPosts = 7;
+        self.curentPage = 0;
 
-        $http.get('api/get-all-posts').success(function(response){
-            self.response = response;
-        });
+        function __construct()
+        {
+            self.paging(0);
+        }
+
+        self.paging = function(page)
+        {
+            PostsService.getPosts(page, self.qntPosts).success(function(posts)
+            {
+                self.cntPosts = posts.pop();
+                self.allPosts = posts;
+                self.allPages = self.cntPosts / self.qntPosts;
+            });
+        };
+
+        __construct();
+
     }
 })();
